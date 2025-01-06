@@ -12,7 +12,7 @@ export function SearchFriends(){
         console.log('clicked')
         try {
             console.log('trying')
-            const response=await axios.get(`http://localhost:5000/api/search?query=${query}`);
+            const response=await axios.get(`https://friends2-backend.onrender.com/api/search?query=${query}`);
             console.log('free')
             console.log(query)
             setResults(response.data)
