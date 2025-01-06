@@ -7,7 +7,7 @@ const FriendsCount = ({ userId }) => {
   useEffect(() => {
     const fetchFriendsCount = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/friends/count/${userId}`);
+        const response = await axios.get(`https://friends2-backend.onrender.com/api/friends/count/${userId}`);
         setCount(response.data.friendsCount);
       } catch (error) {
         console.error("Error fetching friends count:", error);
