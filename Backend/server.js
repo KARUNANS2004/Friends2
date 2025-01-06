@@ -12,7 +12,7 @@ dotenv.config()
 
 const app=express()
 
-app.use(cors({ origin: 'https://friends2-frontend.onrender.com', methods: ['GET', 'POST', PUT', 'DELETE'], allowedHeaders: ['Content-Type', 'Authorization'], }));
+app.use(cors({ origin: 'https://friends2-frontend.onrender.com', methods: ['GET', 'POST', 'PUT', 'DELETE'], allowedHeaders: ['Content-Type', 'Authorization'], }));
 app.options('*', cors());
 app.use(express.json());
 
