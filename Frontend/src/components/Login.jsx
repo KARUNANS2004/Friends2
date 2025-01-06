@@ -19,7 +19,7 @@ export function Login({isLoggedIn, setIsLoggedIn,setUsername}){
         e.preventDefault();
         const username=formData.username;
         try {
-            const response=await axios.post("http://localhost:5000/api/auth/login",formData);
+            const response=await axios.post("https://friends2-backend.onrender.com/api/auth/login",formData);
             localStorage.setItem("token",response.data.token)
             console.log('Successful login') 
             setUsername(username)  
