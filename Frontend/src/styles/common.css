@@ -1,0 +1,30 @@
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    position: relative;
+}
+h2{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+form div{
+    display: flex;
+    gap:20px
+} 
+.cont{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.friends-side{
+    width: 20%;
+    border-left:1px solid rgb(101, 99, 99);
+    box-shadow:-5px 0 5px -5px rgba(101, 99, 99, 0.5);
+    height: 100%;
+}
+ul{
+    list-style-type: none;
+}
