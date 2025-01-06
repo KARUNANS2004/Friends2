@@ -17,7 +17,7 @@ const SignUp = ({setUsername}) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/signup", formData);
+      const response = await axios.post("https://friends2-backend.onrender.com/api/auth/signup", formData);
       setMessage(response.data.message);
       navigate('/login')
       setError("");
