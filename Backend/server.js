@@ -12,7 +12,8 @@ dotenv.config()
 
 const app=express()
 
-app.use(cors());
+app.use(cors({ origin: 'https://friends2-frontend.onrender.com', methods: ['GET', 'POST', PUT', 'DELETE'], allowedHeaders: ['Content-Type', 'Authorization'], }));
+app.options('*', cors());
 app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI).then(()=>{
