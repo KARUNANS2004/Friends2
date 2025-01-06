@@ -12,7 +12,7 @@ export function UserProfile() {
         const fetchUser = async () => {
             try {
                 console.log(userId)
-                const response = await axios.get(`http://localhost:5000/api/users/${userId}`);
+                const response = await axios.get(`https://friends2-backend.onrender.com/api/users/${userId}`);
                 setUser(response.data);
             } catch (error) {
                 setError("Error fetching user details.");
