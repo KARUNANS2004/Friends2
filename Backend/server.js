@@ -3,36 +3,37 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const dotenv = require("dotenv");
 
-const authRoutes=require('./auth')
-const friendRoutes=require('./friends')
-const searchRoutes=require('./search')
-const userRoutes=require('./users')
+dotenv.config();
 
-dotenv.config()
+const authRoutes = require('./auth');
+const friendRoutes = require('./friends');
+const searchRoutes = require('./search');
+const userRoutes = require('./users');
 
-const app=express()
+const app = express();
 
-app.use(cors({ origin: 'https://friends2-frontend.onrender.com', methods: ['GET', 'POST', 'PUT', 'DELETE'], allowedHeaders: ['Content-Type', 'Authorization'], }));
+app.use(cors({
+    origin: ['https://friends2-frontend.onrender.com', 'http://localhost:5173'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 app.options('*', cors());
 app.use(express.json());
 
-mongoose.connect(process.env.MONGO_URI).then(()=>{
-    console.log('Database connected')
-}).catch((error)=>{
-    console.error("Database connection error:",error)
-})
+mongoose.connect(process.env.MONGO_URI).then(() => {
+    console.log('Database connected');
+}).catch((error) => {
+    console.error("Database connection error:", error);
+});
 
-app.use("/api/auth",authRoutes)
+app.use("/api/auth", authRoutes);
+app.use("/api/friends", friendRoutes);
+app.use("/api/search", searchRoutes);
+app.use("/api/users", userRoutes);
 
-app.use("/api/friends",friendRoutes)
-
-app.use("/api/search",searchRoutes)
-
-app.use("/api/users",userRoutes)
-
-app.get("/",(req,res)=>{
-    res.send("Server is running")
-})
+app.get("/", (req, res) => {
+    res.send("Server is running");
+});
 
 const PORT = process.env.PORT || 3010;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
