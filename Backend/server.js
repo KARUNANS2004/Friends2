@@ -13,7 +13,7 @@ const userRoutes = require('./users');
 const app = express();
 
 app.use(cors({
-    origin: ['https://friends2-frontend.onrender.com'],
+    origin: ['https://friends2-frontend.onrender.com','https://friends2-backend.onrender.com/api/auth/signup'],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
 }));
